@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "year": 1920,
+        "sizeOfHousehold": 5.07,
+        "population": 1323390
+    },
+    {
+        "id": 2,
+        "year": 1925,
+        "sizeOfHousehold": 4.92,
+        "population": 1416792
+    },
+    {
+        "id": 3,
+        "year": 1930,
+        "sizeOfHousehold": 5.01,
+        "population": 1619606
+    },
+    {
+        "id": 4,
+        "year": 1935,
+        "sizeOfHousehold": 5.14,
+        "population": 1840005
+    },
+    {
+        "id": 5,
+        "year": 1940,
+        "sizeOfHousehold": 5.08,
+        "population": 2188974
+    },
+    {
+        "id": 6,
+        "year": 1947,
+        "sizeOfHousehold": 4.76,
+        "population": 2218120
+    },
+    {
+        "id": 7,
+        "year": 1950,
+        "sizeOfHousehold": 4.75,
+        "population": 2487665
+    },
+    {
+        "id": 8,
+        "year": 1955,
+        "sizeOfHousehold": 4.67,
+        "population": 2919497
+    },
+    {
+        "id": 9,
+        "year": 1960,
+        "sizeOfHousehold": 4.21,
+        "population": 3443176
+    },
+    {
+        "id": 10,
+        "year": 1965,
+        "sizeOfHousehold": 3.85,
+        "population": 4430743
+    },
+    {
+        "id": 11,
+        "year": 1970,
+        "sizeOfHousehold": 3.57,
+        "population": 5472247
+    },
+    {
+        "id": 12,
+        "year": 1975,
+        "sizeOfHousehold": 3.36,
+        "population": 6397748
+    },
+    {
+        "id": 13,
+        "year": 1980,
+        "sizeOfHousehold": 3.07,
+        "population": 6924348
+    },
+    {
+        "id": 14,
+        "year": 1985,
+        "sizeOfHousehold": 2.98,
+        "population": 7431974
+    },
+    {
+        "id": 15,
+        "year": 1990,
+        "sizeOfHousehold": 2.8,
+        "population": 7980391
+    },
+    {
+        "id": 16,
+        "year": 1995,
+        "sizeOfHousehold": 2.67,
+        "population": 8245900
+    },
+    {
+        "id": 17,
+        "year": 2000,
+        "sizeOfHousehold": 2.54,
+        "population": 8489974
+    },
+    {
+        "id": 18,
+        "year": 2005,
+        "sizeOfHousehold": 2.45,
+        "population": 8791597
+    },
+    {
+        "id": 19,
+        "year": 2010,
+        "sizeOfHousehold": 2.35,
+        "population": 9048331
+    },
+    {
+        "id": 20,
+        "year": 2015,
+        "sizeOfHousehold": 2.29,
+        "population": 9126214
+    },
+    {
+        "id": 21,
+        "year": 2020,
+        "sizeOfHousehold": 2.19,
+        "population": 9240411
+    }
+]
