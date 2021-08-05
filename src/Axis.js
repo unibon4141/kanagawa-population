@@ -72,7 +72,7 @@ export function VerricalHouseAxis({ scale }) {
             dominantBaseline="central"
             fontSize="15"
           >
-            1世帯あたりの平均人数
+            世帯平均人数
           </text>
         </g>
 

@@ -105,7 +105,7 @@ function KanagawaGraph(props) {
                   cx={xScale(item.year)}
                   cy={yScaleHousehold(item.sizeOfHousehold)}
                   r="5"
-                  fill={colorScale("1世帯あたりの人員")}
+                  fill={colorScale("世帯平均人数")}
                 ></circle>
               );
             })}
