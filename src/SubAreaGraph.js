@@ -75,7 +75,7 @@ function SubAreaGraph({ target, colorScale }) {
   return (
     <div>
       <h2 style={{ position: "absolute", top: "0", left: "850px" }}>
-        市区町村別のグラフ
+        市区町村別のグラフ : {target}
       </h2>
       <div style={{ position: "absolute", top: "50px", left: "800px" }}>
         <svg
