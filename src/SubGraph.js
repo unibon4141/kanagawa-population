@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { VerricalAxis, VerricalHouseAxis, HorizontalAxis } from "./Axis";
+import { VerricalAxis, HorizontalAxis } from "./Axis";
 import * as d3 from "d3";
 import Legend from "./Legend";
 
-function SubAreaGraph({ target, colorScale }) {
+function SubGraph({ target, colorScale }) {
   const [eachKanagawaData, setEachKanagawaData] = useState([]);
   const margin = {
     top: 10,
@@ -26,17 +26,12 @@ function SubAreaGraph({ target, colorScale }) {
   if (eachKanagawaData.length === 0 || target === null) {
     return (
       <div>
-        <h2 style={{ position: "absolute", top: "0", left: "850px" }}>
-          市区町村別のグラフ
-        </h2>
+        <h2>市区町村別のグラフ</h2>
         <div
           style={{
             width: svgWidth,
             height: svgHeight,
             border: "solid 2px",
-            position: "absolute",
-            top: "50px",
-            left: "800px",
           }}
         ></div>
       </div>
@@ -74,10 +69,8 @@ function SubAreaGraph({ target, colorScale }) {
     .range([contentHeight, 0]);
   return (
     <div>
-      <h2 style={{ position: "absolute", top: "0", left: "850px" }}>
-        市区町村別のグラフ : {target}
-      </h2>
-      <div style={{ position: "absolute", top: "50px", left: "800px" }}>
+      <h2>市区町村別のグラフ : {target}</h2>
+      <div>
         <svg
           viewBox={`${-margin.left} ${-margin.top} ${svgWidth} ${svgHeight}`}
           width={svgWidth}
@@ -126,4 +119,4 @@ function SubAreaGraph({ target, colorScale }) {
     </div>
   );
 }
-export default SubAreaGraph;
+export default SubGraph;
