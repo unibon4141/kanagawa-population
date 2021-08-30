@@ -5,14 +5,16 @@ import Legend from "./Legend";
 
 function SubGraph({ target, colorScale }) {
   const [eachKanagawaData, setEachKanagawaData] = useState([]);
+  const deviceWidth = window.innerWidth;
+  const deviceHeight = window.innerHeight;
+  const contentWidth = deviceWidth * 0.4;
+  const contentHeight = deviceHeight * 0.5;
   const margin = {
     top: 10,
     bottom: 50,
     left: 100,
     right: 180,
   };
-  const contentWidth = 500;
-  const contentHeight = 350;
   const svgWidth = margin.right + margin.left + contentWidth;
   const svgHeight = margin.top + margin.bottom + contentHeight;
 
@@ -68,7 +70,7 @@ function SubGraph({ target, colorScale }) {
     .domain([0, d3.extent(graphData, (item) => item.population)[1]])
     .range([contentHeight, 0]);
   return (
-    <div>
+    <div class="box">
       <h2>市区町村別のグラフ : {target}</h2>
       <div>
         <svg
@@ -77,9 +79,9 @@ function SubGraph({ target, colorScale }) {
           height={svgHeight}
           style={{ border: "solid 2px" }}
         >
-          <Legend scale={colorScale} type="sub" />
-          <VerricalAxis scale={yScalePopulation} />
-          <HorizontalAxis scale={xScale} />
+          <Legend scale={colorScale} type="sub" graphWidth={contentWidth} />
+          <VerricalAxis scale={yScalePopulation} graphHeight={contentHeight} />
+          <HorizontalAxis scale={xScale} graphHeight={contentHeight} />
 
           <g>
             {graphData.map((item, i) => {
@@ -109,7 +111,7 @@ function SubGraph({ target, colorScale }) {
                   cx="0"
                   cy="0"
                   r="5"
-                  fill={colorScale("人口")}
+                  fill={colorScale("population")}
                 />
               );
             })}

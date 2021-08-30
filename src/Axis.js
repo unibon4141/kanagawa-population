@@ -1,4 +1,4 @@
-export function VerricalAxis({ scale }) {
+export function VerricalAxis({ scale, graphHeight }) {
   const strokeColor = "#888";
   const x = 0;
   const [y1, y2] = scale.range();
@@ -48,9 +48,9 @@ export function VerricalAxis({ scale }) {
   );
 }
 
-export function VerricalHouseAxis({ scale }) {
+export function VerricalHouseAxis({ scale, graphWidth }) {
   const strokeColor = "#888";
-  const x = 500;
+  const x = graphWidth;
   const [y1, y2] = scale.range();
 
   return (
@@ -98,16 +98,16 @@ export function VerricalHouseAxis({ scale }) {
   );
 }
 
-export function HorizontalAxis({ scale }) {
+export function HorizontalAxis({ scale, graphHeight }) {
   const strokeColor = "#888";
-  const y = 350;
+  const y = graphHeight;
 
   const [x1, x2] = scale.range();
   return (
     <g>
       <line x1={x1} y1={y} x2={x2 + 5} y2={y} stroke={strokeColor}></line>
       <g>
-        <g transform="translate(250, 380)">
+        <g transform={`translate(400, ${y + 40})`}>
           <text
             x="0"
             y="0"
@@ -122,7 +122,13 @@ export function HorizontalAxis({ scale }) {
         {scale.ticks().map((x, i) => {
           return (
             <g key={i} transform={`translate(${scale(x)}, 0)`}>
-              <line x1="0" y1="395" x2="0" y2="400" stroke={strokeColor}></line>
+              <line
+                x1="0"
+                y1={graphHeight}
+                x2="0"
+                y2={graphHeight - 10}
+                stroke={strokeColor}
+              ></line>
               <text
                 x="0"
                 y={y + 15}

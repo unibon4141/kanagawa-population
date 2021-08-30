@@ -13,8 +13,10 @@ function KanagawaMap(props) {
     left: 50,
     right: 100,
   };
-  const contentWidth = 400;
-  const contentHeight = 300;
+  const deviceWidth = window.innerWidth;
+  const deviceHeight = window.innerHeight;
+  const contentWidth = deviceWidth * 0.25;
+  const contentHeight = contentWidth * 0.7;
   const svgWidth = margin.right + margin.left + contentWidth;
   const svgHeight = margin.top + margin.bottom + contentHeight;
   useEffect(() => {
@@ -77,33 +79,35 @@ function KanagawaMap(props) {
     return <div>loading</div>;
   }
   return (
-    <div>
-      <div>
-        <SubGraph target={clickedArea} colorScale={colorScale} />
+    <div class="columns">
+      <div class="column">
+        <div class="box">
+          <svg
+            viewBox={`${-margin.left} ${-margin.top} ${svgWidth} ${svgHeight}`}
+            width={svgWidth}
+            height={svgHeight}
+            style={{ border: "solid 2px" }}
+          >
+            {data.map((item, i) => {
+              return (
+                <path
+                  key={i}
+                  onClick={mouseEnterHandle}
+                  d={item.path}
+                  data-name={item.name}
+                  style={{
+                    stroke: "black",
+                    fill: clickedArea === item.name ? "#aad5ff" : "white",
+                    strokeWidth: "1",
+                  }}
+                ></path>
+              );
+            })}
+          </svg>
+        </div>
       </div>
-      <div>
-        <svg
-          viewBox={`${-margin.left} ${-margin.top} ${svgWidth} ${svgHeight}`}
-          width={svgWidth}
-          height={svgHeight}
-          style={{ border: "solid 2px" }}
-        >
-          {data.map((item, i) => {
-            return (
-              <path
-                key={i}
-                onClick={mouseEnterHandle}
-                d={item.path}
-                data-name={item.name}
-                style={{
-                  stroke: "black",
-                  fill: clickedArea === item.name ? "#aad5ff" : "white",
-                  strokeWidth: "1",
-                }}
-              ></path>
-            );
-          })}
-        </svg>
+      <div class="column">
+        <SubGraph target={clickedArea} colorScale={colorScale} />
       </div>
     </div>
   );
