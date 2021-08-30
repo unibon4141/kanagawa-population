@@ -86,7 +86,6 @@ function KanagawaMap(props) {
             viewBox={`${-margin.left} ${-margin.top} ${svgWidth} ${svgHeight}`}
             width={svgWidth}
             height={svgHeight}
-            style={{ border: "solid 2px" }}
           >
             {data.map((item, i) => {
               return (
@@ -96,8 +95,8 @@ function KanagawaMap(props) {
                   d={item.path}
                   data-name={item.name}
                   style={{
-                    stroke: "black",
-                    fill: clickedArea === item.name ? "#aad5ff" : "white",
+                    stroke: "	#7f7f7f",
+                    fill: clickedArea === item.name ? "#aad5ff" : "#fff",
                     strokeWidth: "1",
                   }}
                 ></path>

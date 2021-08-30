@@ -33,7 +33,6 @@ function SubGraph({ target, colorScale }) {
           style={{
             width: svgWidth,
             height: svgHeight,
-            border: "solid 2px",
           }}
         ></div>
       </div>
@@ -77,7 +76,6 @@ function SubGraph({ target, colorScale }) {
           viewBox={`${-margin.left} ${-margin.top} ${svgWidth} ${svgHeight}`}
           width={svgWidth}
           height={svgHeight}
-          style={{ border: "solid 2px" }}
         >
           <Legend scale={colorScale} type="sub" graphWidth={contentWidth} />
           <VerricalAxis scale={yScalePopulation} graphHeight={contentHeight} />
@@ -94,7 +92,7 @@ function SubGraph({ target, colorScale }) {
                     y1={yScalePopulation(preData["population"])}
                     x2={xScale(item["year"])}
                     y2={yScalePopulation(item["population"])}
-                    stroke="black"
+                    stroke={colorScale("population")}
                   ></line>
                 );
               }
