@@ -5,7 +5,7 @@ import SubGraph from "./SubGraph";
 function KanagawaMap(props) {
   const scale = 30000 * 0.7;
   const colorScale = props.scale;
-  const [data, setData] = useState([]);
+  const [mapData, setMapData] = useState([]);
   const [clickedArea, setClickedArea] = useState(null);
   const margin = {
     top: 10,
@@ -68,44 +68,63 @@ function KanagawaMap(props) {
           path: geoPath(item),
         });
       });
-      setData(pathes);
+      setMapData(pathes);
     });
   }, []);
   // 神奈川県の地図がクリックされた時に発火
   function mouseEnterHandle(e) {
     setClickedArea(e.currentTarget.dataset.name);
   }
-  if (data == 0) {
-    return <div>loading</div>;
-  }
+
   return (
-    <div class="columns">
-      <div class="column">
-        <div class="box">
-          <svg
-            viewBox={`${-margin.left} ${-margin.top} ${svgWidth} ${svgHeight}`}
-            width={svgWidth}
-            height={svgHeight}
-          >
-            {data.map((item, i) => {
-              return (
-                <path
-                  key={i}
-                  onClick={mouseEnterHandle}
-                  d={item.path}
-                  data-name={item.name}
-                  style={{
-                    stroke: "	#7f7f7f",
-                    fill: clickedArea === item.name ? "#aad5ff" : "#fff",
-                    strokeWidth: "1",
-                  }}
-                ></path>
-              );
-            })}
-          </svg>
+    <div className="columns">
+      <div className="column">
+        <div className="box">
+          {mapData.length === 0 ? (
+            <div
+              style={{
+                width: svgWidth,
+                height: svgHeight,
+                position: "relative",
+              }}
+            >
+              <progress
+                className="progress is-small is-success"
+                max="100"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  bottom: 0,
+                  margin: "auto",
+                }}
+              ></progress>
+            </div>
+          ) : (
+            <svg
+              viewBox={`${-margin.left} ${-margin.top} ${svgWidth} ${svgHeight}`}
+              width={svgWidth}
+              height={svgHeight}
+            >
+              {mapData.map((item, i) => {
+                return (
+                  <path
+                    key={i}
+                    onClick={mouseEnterHandle}
+                    d={item.path}
+                    data-name={item.name}
+                    style={{
+                      stroke: "	#7f7f7f",
+                      fill: clickedArea === item.name ? "#aad5ff" : "#fff",
+                      strokeWidth: "1",
+                    }}
+                  ></path>
+                );
+              })}
+            </svg>
+          )}
         </div>
       </div>
-      <div class="column">
+      <div className="column">
         <SubGraph target={clickedArea} colorScale={colorScale} />
       </div>
     </div>

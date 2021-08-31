@@ -25,16 +25,62 @@ function SubGraph({ target, colorScale }) {
       setEachKanagawaData(fetchData);
     })();
   }, []);
-  if (eachKanagawaData.length === 0 || target === null) {
+  if (eachKanagawaData.length === 0) {
     return (
-      <div>
-        <h2>市区町村別のグラフ</h2>
-        <div
-          style={{
-            width: svgWidth,
-            height: svgHeight,
-          }}
-        ></div>
+      <div className="columns">
+        <div className="column">
+          <div className="box">
+            <h2>市区町村別のグラフ</h2>
+            <div
+              style={{
+                width: svgWidth,
+                height: svgHeight,
+                position: "relative",
+              }}
+            >
+              <progress
+                class="progress is-small is-success"
+                max="100"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  bottom: 0,
+                  margin: "auto",
+                }}
+              ></progress>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  } else if (target === null) {
+    return (
+      <div className="columns">
+        <div className="column">
+          <div className="box">
+            <h2>市区町村別のグラフ</h2>
+            <div
+              style={{
+                width: svgWidth,
+                height: svgHeight,
+                position: "relative",
+              }}
+            >
+              <p
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  bottom: 0,
+                  margin: "auto",
+                  textAlign: "center",
+                  height: "50px",
+                }}
+              >
+                左の神奈川県の地図をクリックするとここにグラフが表示されます。
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

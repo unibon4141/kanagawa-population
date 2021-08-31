@@ -27,7 +27,35 @@ function OverallGraph(props) {
   }, []);
 
   if (mapData.length == 0) {
-    return <div>loading</div>;
+    return (
+      <div class="columns is-centered">
+        <div class=" column is-9 mt-3">
+          <div class="box">
+            <h2>神奈川県全体のグラフ</h2>
+            <div>
+              <div
+                style={{
+                  width: svgWidth,
+                  height: svgHeight,
+                  position: "relative",
+                }}
+              >
+                <progress
+                  class="progress is-small is-success"
+                  max="100"
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    bottom: 0,
+                    margin: "auto",
+                  }}
+                ></progress>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   // scalelinier:変数変換
