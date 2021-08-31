@@ -92,8 +92,15 @@ function OverallGraph(props) {
                 type="main"
                 graphWidth={contentWidth}
               />
-              <VerricalAxis scale={yScalePopulation} />
-              <HorizontalAxis scale={xScale} graphHeight={contentHeight} />
+              <VerricalAxis
+                scale={yScalePopulation}
+                graphHeight={contentHeight}
+              />
+              <HorizontalAxis
+                scale={xScale}
+                graphWidth={contentWidth}
+                graphHeight={contentHeight}
+              />
               <VerricalHouseAxis
                 scale={yScaleHousehold}
                 graphWidth={contentWidth}
@@ -109,7 +116,7 @@ function OverallGraph(props) {
                         y1={yScaleHousehold(preData.sizeOfHousehold)}
                         x2={xScale(item["year"])}
                         y2={yScaleHousehold(item.sizeOfHousehold)}
-                        stroke={colorScale("sizeOfHousehold")}
+                        stroke={colorScale("世帯平均人数")}
                       ></line>
                     );
                   }
@@ -123,7 +130,7 @@ function OverallGraph(props) {
                       cx={xScale(item.year)}
                       cy={yScaleHousehold(item.sizeOfHousehold)}
                       r="5"
-                      fill={colorScale("sizeOfHousehold")}
+                      fill={colorScale("世帯平均人数")}
                     ></circle>
                   );
                 })}
@@ -139,7 +146,7 @@ function OverallGraph(props) {
                         y1={yScalePopulation(preData["population"])}
                         x2={xScale(item["year"])}
                         y2={yScalePopulation(item["population"])}
-                        stroke={colorScale("population")}
+                        stroke={colorScale("人口")}
                       ></line>
                     );
                   }
@@ -156,7 +163,7 @@ function OverallGraph(props) {
                       cx="0"
                       cy="0"
                       r="5"
-                      fill={colorScale("population")}
+                      fill={colorScale("人口")}
                     />
                   );
                 })}

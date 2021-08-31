@@ -28,7 +28,7 @@ function SubGraph({ target, colorScale }) {
   if (eachKanagawaData.length === 0) {
     return (
       <div className="columns">
-        <div className="column">
+        <div className="column is-7">
           <div className="box">
             <h2>市区町村別のグラフ</h2>
             <div
@@ -55,31 +55,27 @@ function SubGraph({ target, colorScale }) {
     );
   } else if (target === null) {
     return (
-      <div className="columns">
-        <div className="column">
-          <div className="box">
-            <h2>市区町村別のグラフ</h2>
-            <div
-              style={{
-                width: svgWidth,
-                height: svgHeight,
-                position: "relative",
-              }}
-            >
-              <p
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  bottom: 0,
-                  margin: "auto",
-                  textAlign: "center",
-                  height: "50px",
-                }}
-              >
-                左の神奈川県の地図をクリックするとここにグラフが表示されます。
-              </p>
-            </div>
-          </div>
+      <div className="box">
+        <h2>市区町村別のグラフ</h2>
+        <div
+          style={{
+            width: svgWidth,
+            height: svgHeight,
+            position: "relative",
+          }}
+        >
+          <p
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              margin: "auto",
+              textAlign: "center",
+              height: "50px",
+            }}
+          >
+            左の神奈川県の地図をクリックするとここにグラフが表示されます。
+          </p>
         </div>
       </div>
     );
@@ -125,7 +121,11 @@ function SubGraph({ target, colorScale }) {
         >
           <Legend scale={colorScale} type="sub" graphWidth={contentWidth} />
           <VerricalAxis scale={yScalePopulation} graphHeight={contentHeight} />
-          <HorizontalAxis scale={xScale} graphHeight={contentHeight} />
+          <HorizontalAxis
+            scale={xScale}
+            graphWidth={contentWidth}
+            graphHeight={contentHeight}
+          />
 
           <g>
             {graphData.map((item, i) => {
@@ -138,7 +138,7 @@ function SubGraph({ target, colorScale }) {
                     y1={yScalePopulation(preData["population"])}
                     x2={xScale(item["year"])}
                     y2={yScalePopulation(item["population"])}
-                    stroke={colorScale("population")}
+                    stroke={colorScale("人口")}
                   ></line>
                 );
               }
@@ -155,7 +155,7 @@ function SubGraph({ target, colorScale }) {
                   cx="0"
                   cy="0"
                   r="5"
-                  fill={colorScale("population")}
+                  fill={colorScale("人口")}
                 />
               );
             })}

@@ -73,12 +73,12 @@ function KanagawaMap(props) {
 
   return (
     <div className="columns">
-      <div className="column">
+      <div className="column is-4">
         <div className="box">
           {mapData.length === 0 ? (
             <div
               style={{
-                width: svgWidth,
+                width: svgWidth * 0.8,
                 height: svgHeight,
                 position: "relative",
               }}
@@ -119,7 +119,7 @@ function KanagawaMap(props) {
           )}
         </div>
       </div>
-      <div className="column">
+      <div className="column is-7">
         <SubGraph target={clickedArea} colorScale={colorScale} />
       </div>
     </div>

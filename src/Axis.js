@@ -14,7 +14,7 @@ export function VerricalAxis({ scale, graphHeight }) {
         strokeWidth="2"
       ></line>
       <g>
-        <g transform="translate(-80, 200) rotate(-90)">
+        <g transform={`translate(-80, ${graphHeight / 2}) rotate(-90)`}>
           <text
             x="0"
             y="0"
@@ -98,7 +98,7 @@ export function VerricalHouseAxis({ scale, graphWidth }) {
   );
 }
 
-export function HorizontalAxis({ scale, graphHeight }) {
+export function HorizontalAxis({ scale, graphWidth, graphHeight }) {
   const strokeColor = "#888";
   const y = graphHeight;
 
@@ -107,7 +107,7 @@ export function HorizontalAxis({ scale, graphHeight }) {
     <g>
       <line x1={x1} y1={y} x2={x2 + 5} y2={y} stroke={strokeColor}></line>
       <g>
-        <g transform={`translate(400, ${y + 40})`}>
+        <g transform={`translate(${graphWidth / 2}, ${y + 40})`}>
           <text
             x="0"
             y="0"

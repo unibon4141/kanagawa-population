@@ -25,7 +25,7 @@ function Legend({ scale, type, graphWidth }) {
             return (
               <g
                 key={i}
-                transform={`translate(${graphWidth - 50}, ${20 + i * 15})`}
+                transform={`translate(${graphWidth - 100}, ${20 + i * 15})`}
               >
                 <circle r="5" fill={scale(item)} />
                 <text x="10" fontSize="11" dominantBaseline="central">
