@@ -39,7 +39,7 @@ function SubGraph({ target, colorScale }) {
               }}
             >
               <progress
-                class="progress is-small is-success"
+                className="progress is-small is-success"
                 max="100"
                 style={{
                   position: "absolute",
@@ -115,7 +115,7 @@ function SubGraph({ target, colorScale }) {
     .domain([0, d3.extent(graphData, (item) => item.population)[1]])
     .range([contentHeight, 0]);
   return (
-    <div class="box">
+    <div className="box">
       <h2>市区町村別のグラフ : {target}</h2>
       <div>
         <svg

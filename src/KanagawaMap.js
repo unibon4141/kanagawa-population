@@ -14,37 +14,32 @@ function KanagawaMap(props) {
     right: 100,
   };
   const deviceWidth = window.innerWidth;
-  const deviceHeight = window.innerHeight;
   const contentWidth = deviceWidth * 0.25;
   const contentHeight = contentWidth * 0.7;
   const svgWidth = margin.right + margin.left + contentWidth;
   const svgHeight = margin.top + margin.bottom + contentHeight;
   useEffect(() => {
-    d3.json("kanagawa.topojson").then((topoSaitama) => {
-      const geoSaitama = topojson.feature(
-        topoSaitama,
-        topoSaitama.objects.kanagawa
-      ); //TopoJSON=>GeoJSO変換
-      const geoSaitamacp = JSON.parse(JSON.stringify(geoSaitama));
-      geoSaitamacp.features = [];
+    d3.json("kanagawa.topojson").then((topoData) => {
+      const pathData = topojson.feature(topoData, topoData.objects.kanagawa); //TopoJSON=>GeoJSO変換
+      const jsonData = { ...pathData };
+      jsonData.features = [];
 
-      let i = 14101;
+      const KANAGAWA_START_NUM = 14101;
+      const KANAGAWA_END_NUM = 14402;
+      let pathDataNum = KANAGAWA_START_NUM;
       const arrChanged = [];
-      while (i <= 14402) {
-        const divideArray = geoSaitama.features.filter((item) => {
-          if (item.properties.N03_007 == i) {
-            return true;
-          } else {
-            return false;
-          }
+
+      while (pathDataNum <= KANAGAWA_END_NUM) {
+        const divideArray = pathData.features.filter((item) => {
+          return item.properties.N03_007 == pathDataNum ? true : false;
         });
         // 配列の中身が空でないか
         if (divideArray.length > 0) {
-          const tmpArray = JSON.parse(JSON.stringify(geoSaitamacp));
+          const tmpArray = { ...jsonData };
           tmpArray.features = divideArray;
           arrChanged.push(tmpArray);
         }
-        i++;
+        pathDataNum++;
       }
 
       const east = 138.915833,

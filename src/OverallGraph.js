@@ -28,9 +28,9 @@ function OverallGraph(props) {
 
   if (mapData.length == 0) {
     return (
-      <div class="columns is-centered">
-        <div class=" column is-9 mt-3">
-          <div class="box">
+      <div className="columns is-centered">
+        <div className=" column is-9 mt-3">
+          <div className="box">
             <h2>神奈川県全体のグラフ</h2>
             <div>
               <div
@@ -41,7 +41,7 @@ function OverallGraph(props) {
                 }}
               >
                 <progress
-                  class="progress is-small is-success"
+                  className="progress is-small is-success"
                   max="100"
                   style={{
                     position: "absolute",
@@ -77,9 +77,9 @@ function OverallGraph(props) {
     .domain([0, d3.extent(mapData, (item) => item["population"])[1]])
     .range([contentHeight, 0]);
   return (
-    <div class="columns is-centered">
-      <div class=" column is-9 mt-3">
-        <div class="box">
+    <div className="columns is-centered">
+      <div className=" column is-9 mt-3">
+        <div className="box">
           <h2>神奈川県全体のグラフ</h2>
           <div>
             <svg

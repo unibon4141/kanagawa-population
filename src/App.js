@@ -25,10 +25,10 @@ function Main() {
 function Header() {
   return (
     <header>
-      <div class="hero is-success">
-        <div class="hero-body">
-          <p class="title">Kanagawa Visualizar</p>
-          <p class="subtitle">Success subtitle</p>
+      <div className="hero is-success">
+        <div className="hero-body">
+          <p className="title">Kanagawa Visualizar</p>
+          <p className="subtitle">Success subtitle</p>
         </div>
       </div>
     </header>
@@ -36,8 +36,8 @@ function Header() {
 }
 function Footer() {
   return (
-    <footer class="footer">
-      <div class="content has-text-centered">
+    <footer className="footer">
+      <div className="content has-text-centered">
         <p>kanagawa visualizar</p>
       </div>
     </footer>
