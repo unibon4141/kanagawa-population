@@ -27,29 +27,25 @@ function SubGraph({ target, colorScale }) {
   }, []);
   if (eachKanagawaData.length === 0) {
     return (
-      <div className="columns">
-        <div className="column is-7">
-          <div className="box">
-            <h2>市区町村別のグラフ</h2>
-            <div
-              style={{
-                width: svgWidth,
-                height: svgHeight,
-                position: "relative",
-              }}
-            >
-              <progress
-                className="progress is-small is-success"
-                max="100"
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  bottom: 0,
-                  margin: "auto",
-                }}
-              ></progress>
-            </div>
-          </div>
+      <div className="box">
+        <h2>市区町村別のグラフ</h2>
+        <div
+          style={{
+            width: svgWidth * 0.9,
+            height: svgHeight,
+            position: "relative",
+          }}
+        >
+          <progress
+            className="progress is-small is-success"
+            max="100"
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              margin: "auto",
+            }}
+          ></progress>
         </div>
       </div>
     );
