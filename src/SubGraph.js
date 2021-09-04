@@ -8,7 +8,7 @@ function SubGraph({ target, colorScale }) {
   const deviceWidth = window.innerWidth;
   const deviceHeight = window.innerHeight;
   const contentWidth =
-    deviceWidth > 768 ? deviceWidth * 0.4 : deviceWidth * 0.65;
+    deviceWidth > 768 ? deviceWidth * 0.4 : deviceWidth * 0.55;
   const contentHeight =
     deviceWidth > 768 ? deviceHeight * 0.5 : contentWidth * 0.7;
   const margin = {
@@ -57,13 +57,14 @@ function SubGraph({ target, colorScale }) {
         <h2>市区町村別のグラフ</h2>
         <div
           style={{
-            width: svgWidth,
+            width: svgWidth * 0.9,
             height: svgHeight,
             position: "relative",
           }}
         >
           <p
             style={{
+              width: "  ",
               position: "absolute",
               top: 0,
               bottom: 0,

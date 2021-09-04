@@ -73,14 +73,8 @@ function KanagawaMap(props) {
   }
 
   return (
-    <div
-      className="columns is-multiline"
-      style={{
-        marginBottom: "50px",
-        marginLeft: deviceWidth > 768 ? "20px" : "0",
-      }}
-    >
-      <div className="column is-4">
+    <div className="columns is-multiline is-mobile">
+      <div className="column is-4-desktop is-12-mobile">
         <div className="box">
           {mapData.length === 0 ? (
             <div
@@ -126,7 +120,7 @@ function KanagawaMap(props) {
           )}
         </div>
       </div>
-      <div className="column is-7">
+      <div className="column is-7-desktop is-12-mobile">
         <SubGraph target={clickedArea} colorScale={colorScale} />
       </div>
     </div>

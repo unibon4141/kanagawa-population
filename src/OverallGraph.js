@@ -29,8 +29,8 @@ function OverallGraph(props) {
 
   if (mapData.length == 0) {
     return (
-      <div className="columns is-centered is-mobile">
-        <div className=" column is-10-desktop is-full-mobile mt-3">
+      <div className="columns is-centered is-mobile ">
+        <div className=" column is-10-desktop is-12-mobile mt-3">
           <div className="box">
             <h2>神奈川県全体のグラフ</h2>
             <div>
@@ -79,7 +79,10 @@ function OverallGraph(props) {
     .range([contentHeight, 0]);
   return (
     <div className="columns is-centered is-mobile">
-      <div className=" column is-10-desktop is-full-mobile mt-3">
+      <div
+        className=" column is-10-desktop is-12-mobile mt-3"
+        style={{ margin: 0 }}
+      >
         <div className="box">
           <h2>神奈川県全体のグラフ</h2>
           <div>
