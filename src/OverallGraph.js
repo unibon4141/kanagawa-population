@@ -5,17 +5,18 @@ import Legend from "./Legend";
 
 function OverallGraph(props) {
   const colorScale = props.scale;
+  const deviceWidth = window.innerWidth;
   const [mapData, setMapData] = useState([]);
   const margin = {
     top: 10,
-    bottom: 50,
-    left: 100,
-    right: 180,
+    bottom: deviceWidth > 768 ? 50 : 90,
+    left: deviceWidth > 768 ? 100 : 55,
+    right: deviceWidth > 768 ? 180 : 55,
   };
-  const deviceWidth = window.innerWidth;
-  const deviceHeight = window.innerHeight;
-  const contentWidth = deviceWidth * 0.5;
-  const contentHeight = deviceHeight * 0.6;
+
+  const contentWidth =
+    deviceWidth > 768 ? deviceWidth * 0.6 : deviceWidth * 0.6;
+  const contentHeight = contentWidth * 0.6;
   const svgWidth = margin.right + margin.left + contentWidth;
   const svgHeight = margin.top + margin.bottom + contentHeight;
   useEffect(() => {
@@ -77,8 +78,8 @@ function OverallGraph(props) {
     .domain([0, d3.extent(mapData, (item) => item["population"])[1]])
     .range([contentHeight, 0]);
   return (
-    <div className="columns is-centered">
-      <div className=" column is-9 mt-3">
+    <div className="columns is-centered is-mobile is-multiline">
+      <div className=" column is-10-desktop is-full-mobile mt-3">
         <div className="box">
           <h2>神奈川県全体のグラフ</h2>
           <div>
@@ -129,7 +130,7 @@ function OverallGraph(props) {
                       key={item.id}
                       cx={xScale(item.year)}
                       cy={yScaleHousehold(item.sizeOfHousehold)}
-                      r="5"
+                      r={deviceWidth > 768 ? "5" : "4"}
                       fill={colorScale("世帯平均人数")}
                     ></circle>
                   );
@@ -162,7 +163,7 @@ function OverallGraph(props) {
                       key={item.id}
                       cx="0"
                       cy="0"
-                      r="5"
+                      r={deviceWidth > 768 ? "5" : "4"}
                       fill={colorScale("人口")}
                     />
                   );

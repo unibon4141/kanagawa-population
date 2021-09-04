@@ -11,11 +11,12 @@ function KanagawaMap(props) {
     top: 10,
     bottom: 10,
     left: 50,
-    right: 100,
+    right: 50,
   };
   const deviceWidth = window.innerWidth;
-  const contentWidth = deviceWidth * 0.25;
-  const contentHeight = contentWidth * 0.7;
+  const contentWidth =
+    deviceWidth > 768 ? deviceWidth * 0.25 : deviceWidth * 0.6;
+  const contentHeight = deviceWidth > 768 ? contentWidth * 0.7 : contentWidth;
   const svgWidth = margin.right + margin.left + contentWidth;
   const svgHeight = margin.top + margin.bottom + contentHeight;
   useEffect(() => {
@@ -72,7 +73,13 @@ function KanagawaMap(props) {
   }
 
   return (
-    <div className="columns">
+    <div
+      className="columns is-multiline"
+      style={{
+        marginBottom: "50px",
+        marginLeft: deviceWidth > 768 ? "20px" : "0",
+      }}
+    >
       <div className="column is-4">
         <div className="box">
           {mapData.length === 0 ? (

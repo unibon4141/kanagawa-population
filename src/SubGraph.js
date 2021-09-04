@@ -7,13 +7,15 @@ function SubGraph({ target, colorScale }) {
   const [eachKanagawaData, setEachKanagawaData] = useState([]);
   const deviceWidth = window.innerWidth;
   const deviceHeight = window.innerHeight;
-  const contentWidth = deviceWidth * 0.4;
-  const contentHeight = deviceHeight * 0.5;
+  const contentWidth =
+    deviceWidth > 768 ? deviceWidth * 0.4 : deviceWidth * 0.65;
+  const contentHeight =
+    deviceWidth > 768 ? deviceHeight * 0.5 : contentWidth * 0.7;
   const margin = {
     top: 10,
-    bottom: 50,
-    left: 100,
-    right: 180,
+    bottom: deviceWidth > 768 ? 50 : 90,
+    left: deviceWidth > 768 ? 100 : 55,
+    right: deviceWidth > 768 ? 180 : 55,
   };
   const svgWidth = margin.right + margin.left + contentWidth;
   const svgHeight = margin.top + margin.bottom + contentHeight;

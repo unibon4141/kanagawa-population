@@ -2,7 +2,7 @@ export function VerricalAxis({ scale, graphHeight }) {
   const strokeColor = "#888";
   const x = 0;
   const [y1, y2] = scale.range();
-
+  const deviceWidth = window.innerWidth;
   return (
     <g>
       <line
@@ -20,7 +20,7 @@ export function VerricalAxis({ scale, graphHeight }) {
             y="0"
             textAnchor="end"
             dominantBaseline="central"
-            fontSize="15"
+            fontSize={deviceWidth > 768 ? "15" : "12"}
           >
             人口
           </text>
@@ -36,7 +36,7 @@ export function VerricalAxis({ scale, graphHeight }) {
                 textAnchor="end"
                 dominantBaseline="central"
                 fill="black"
-                fontSize="12"
+                fontSize={deviceWidth > 768 ? "12" : "10"}
               >
                 {y}
               </text>
@@ -52,6 +52,7 @@ export function VerricalHouseAxis({ scale, graphWidth }) {
   const strokeColor = "#888";
   const x = graphWidth;
   const [y1, y2] = scale.range();
+  const deviceWidth = window.innerWidth;
 
   return (
     <g>
@@ -70,7 +71,7 @@ export function VerricalHouseAxis({ scale, graphWidth }) {
             y="60"
             textAnchor="end"
             dominantBaseline="central"
-            fontSize="15"
+            fontSize={deviceWidth > 768 ? "15" : "12"}
           >
             世帯平均人数
           </text>
@@ -86,7 +87,7 @@ export function VerricalHouseAxis({ scale, graphWidth }) {
                 textAnchor="end"
                 dominantBaseline="central"
                 fill="black"
-                fontSize="12"
+                fontSize={deviceWidth > 768 ? "12" : "10"}
               >
                 {y}
               </text>
@@ -101,6 +102,7 @@ export function VerricalHouseAxis({ scale, graphWidth }) {
 export function HorizontalAxis({ scale, graphWidth, graphHeight }) {
   const strokeColor = "#888";
   const y = graphHeight;
+  const deviceWidth = window.innerWidth;
 
   const [x1, x2] = scale.range();
   return (
@@ -134,7 +136,7 @@ export function HorizontalAxis({ scale, graphWidth, graphHeight }) {
                 y={y + 15}
                 textAnchor="middle"
                 dominantBaseline="central"
-                fontSize="12"
+                fontSize={deviceWidth > 768 ? "12" : "10"}
               >
                 {x}
               </text>
