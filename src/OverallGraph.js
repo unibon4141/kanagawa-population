@@ -29,8 +29,8 @@ function OverallGraph(props) {
 
   if (mapData.length == 0) {
     return (
-      <div className="columns is-centered">
-        <div className=" column is-9 mt-3">
+      <div className="columns is-centered is-mobile">
+        <div className=" column is-10-desktop is-full-mobile mt-3">
           <div className="box">
             <h2>神奈川県全体のグラフ</h2>
             <div>
@@ -78,7 +78,7 @@ function OverallGraph(props) {
     .domain([0, d3.extent(mapData, (item) => item["population"])[1]])
     .range([contentHeight, 0]);
   return (
-    <div className="columns is-centered is-mobile is-multiline">
+    <div className="columns is-centered is-mobile">
       <div className=" column is-10-desktop is-full-mobile mt-3">
         <div className="box">
           <h2>神奈川県全体のグラフ</h2>
