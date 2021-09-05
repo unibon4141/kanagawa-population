@@ -121,7 +121,7 @@ export function HorizontalAxis({ scale, graphWidth, graphHeight }) {
           </text>
         </g>
 
-        {scale.ticks().map((x, i) => {
+        {scale.ticks(5).map((x, i) => {
           return (
             <g key={i} transform={`translate(${scale(x)}, 0)`}>
               <line

@@ -9,7 +9,7 @@ function OverallGraph(props) {
   const [mapData, setMapData] = useState([]);
   const margin = {
     top: 10,
-    bottom: deviceWidth > 768 ? 50 : 90,
+    bottom: deviceWidth > 768 ? 50 : 110,
     left: deviceWidth > 768 ? 100 : 55,
     right: deviceWidth > 768 ? 180 : 55,
   };
@@ -133,9 +133,9 @@ function OverallGraph(props) {
                       key={item.id}
                       cx={xScale(item.year)}
                       cy={yScaleHousehold(item.sizeOfHousehold)}
-                      r={deviceWidth > 768 ? "5" : "4"}
+                      r={deviceWidth > 768 ? "5" : "3"}
                       fill={colorScale("世帯平均人数")}
-                    ></circle>
+                    />
                   );
                 })}
               </g>
@@ -166,7 +166,7 @@ function OverallGraph(props) {
                       key={item.id}
                       cx="0"
                       cy="0"
-                      r={deviceWidth > 768 ? "5" : "4"}
+                      r={deviceWidth > 768 ? "5" : "3"}
                       fill={colorScale("人口")}
                     />
                   );

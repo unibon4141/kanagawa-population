@@ -8,11 +8,11 @@ function SubGraph({ target, colorScale }) {
   const deviceWidth = window.innerWidth;
   const deviceHeight = window.innerHeight;
   const contentWidth =
-    deviceWidth > 768 ? deviceWidth * 0.4 : deviceWidth * 0.55;
+    deviceWidth > 768 ? deviceWidth * 0.4 : deviceWidth * 0.65;
   const contentHeight =
     deviceWidth > 768 ? deviceHeight * 0.5 : contentWidth * 0.7;
   const margin = {
-    top: 10,
+    top: 20,
     bottom: deviceWidth > 768 ? 50 : 90,
     left: deviceWidth > 768 ? 100 : 55,
     right: deviceWidth > 768 ? 180 : 55,
@@ -60,6 +60,7 @@ function SubGraph({ target, colorScale }) {
             width: svgWidth * 0.9,
             height: svgHeight,
             position: "relative",
+            margin: "0 auto",
           }}
         >
           <p
@@ -153,7 +154,7 @@ function SubGraph({ target, colorScale }) {
                   key={i}
                   cx="0"
                   cy="0"
-                  r="5"
+                  r={deviceWidth > 768 ? "5" : "3"}
                   fill={colorScale("人口")}
                 />
               );
