@@ -73,7 +73,7 @@ function KanagawaMap(props) {
   }
 
   return (
-    <div className="columns is-multiline is-mobile">
+    <div className="columns is-multiline is-mobile is-variable is-0-mobile">
       <div className="column is-4-desktop is-12-mobile">
         <div className="box">
           {mapData.length === 0 ? (
