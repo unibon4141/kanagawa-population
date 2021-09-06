@@ -74,7 +74,7 @@ function SubGraph({ target, colorScale }) {
               height: "50px",
             }}
           >
-            左の神奈川県の地図をクリックするとここにグラフが表示されます。
+            神奈川県の地図をクリックするとここにグラフが表示されます。
           </p>
         </div>
       </div>
