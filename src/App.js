@@ -27,7 +27,7 @@ function Header() {
     <header>
       <div className="hero is-success">
         <div className="hero-body">
-          <p className="title">KanagawaVis</p>
+          <p className="title">Kanagawa-Vis</p>
           <p className="subtitle">
             神奈川県の人口と世帯平均人数の推移、市区町村ごとの人口の推移を可視化
           </p>
@@ -40,7 +40,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="content has-text-centered">
-        <p>kanagawa visualizar</p>
+        <p>Kanagawa-Vis</p>
       </div>
     </footer>
   );

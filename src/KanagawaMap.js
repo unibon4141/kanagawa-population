@@ -7,6 +7,7 @@ function KanagawaMap(props) {
   const colorScale = props.scale;
   const [mapData, setMapData] = useState([]);
   const [clickedArea, setClickedArea] = useState(null);
+  const [hoverArea, setHoverArea] = useState(null);
   const margin = {
     top: 10,
     bottom: 10,
@@ -67,11 +68,16 @@ function KanagawaMap(props) {
       setMapData(pathes);
     });
   }, []);
-  // 神奈川県の地図がクリックされた時に発火
+
   function mouseEnterHandle(e) {
     setClickedArea(e.currentTarget.dataset.name);
   }
-
+  function mouseOveerHandle(e) {
+    setHoverArea(e.currentTarget.dataset.name);
+  }
+  function mouseOutHandle(e) {
+    setHoverArea(null);
+  }
   return (
     <div className="columns is-multiline is-mobile is-variable is-0-mobile">
       <div className="column is-4-desktop is-12-mobile">
@@ -102,15 +108,25 @@ function KanagawaMap(props) {
               height={svgHeight}
             >
               {mapData.map((item, i) => {
+                let fillCol = "";
+                if (item.name === clickedArea) {
+                  fillCol = "#aad5ff";
+                } else if (item.name === hoverArea) {
+                  fillCol = "#dceaf8";
+                } else {
+                  fillCol = "#fff";
+                }
                 return (
                   <path
                     key={i}
                     onClick={mouseEnterHandle}
                     d={item.path}
                     data-name={item.name}
+                    onMouseOver={mouseOveerHandle}
+                    onMouseOut={mouseOutHandle}
                     style={{
                       stroke: "	#7f7f7f",
-                      fill: clickedArea === item.name ? "#aad5ff" : "#fff",
+                      fill: fillCol,
                       strokeWidth: "1",
                     }}
                   ></path>
